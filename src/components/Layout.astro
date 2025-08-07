@@ -38,6 +38,8 @@ const { title, description, showSidebar = true, image, type, publishedTime, cano
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <script is:inline src="/theme-init.js"></script>
     <SEO
       title={title}
@@ -50,7 +52,9 @@ const { title, description, showSidebar = true, image, type, publishedTime, cano
   </head>
   <body>
     <div class="site-wrapper">
-      <Header />
+      <!--
+        <Header />
+       -->
       
       <main class="main-content" class:list={{ 'with-sidebar': showSidebar }}>
         {showSidebar && (
@@ -63,8 +67,9 @@ const { title, description, showSidebar = true, image, type, publishedTime, cano
           <slot />
         </div>
       </main>
-      
-      <Footer />
+      <!--
+        <Footer />
+       -->
     </div>
   </body>
 </html>
