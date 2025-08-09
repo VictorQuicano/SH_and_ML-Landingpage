@@ -1,0 +1,32 @@
+.fade-slider-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px; /* Ajusta según necesidad */
+  object-fit: cover;
+}
+
+.slide-info {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.slide-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.slide-info p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+}

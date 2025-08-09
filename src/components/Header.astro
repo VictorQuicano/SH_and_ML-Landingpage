@@ -2,7 +2,17 @@
 import { config } from '../config';
 import ThemeToggle from './ThemeToggle.astro';
 
+
 const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: '' };
+const navItems = [
+  { name: "Conocenos", path: "" },
+  { name: "Ingenierías", path: "servicios/ingenierias-para-obras" },
+  { name: "Arquitectura", path: "servicios/arquitectura" },
+  { name: "Estudios", path: "servicios/mecanica-de-suelos" },
+  { name: "Topografía", path: "servicios/topografia" },
+  { name: "Saneamiento", path: "servicios/saneamiento" },
+];
+const currentURL = Astro.url;
 ---
 
 <header class="site-header">
@@ -15,48 +25,35 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
         <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
-    
-    <div class="site-title">
-      <a href={base}>
-        <img src={base + "site-title.svg"} alt={config.title} class="title-svg" />
-      </a>
-    </div>
+
+    <!--
+      <div class="site-title">
+        <a href={base}>
+          <img src={base + "site-title.svg"} alt={config.title} class="title-svg" />
+        </a>
+      </div>
+     -->
     
     <div class="header-controls">
       <nav class="main-navigation" role="navigation" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href={base} class="nav-link">Home</a></li>
-          <li><a href={base + "blog"} class="nav-link">Blog</a></li>
-          <li><a href={base + "categories"} class="nav-link">Categories</a></li>
-          <li><a href={base + "about"} class="nav-link">About</a></li>
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={`/${item.path}`}
+                class={`nav-link ${
+                  currentURL.pathname === `/${item.path}` ? 'nav-link-active' : ''
+                }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
-      
+      <ThemeToggle />
       <!-- Mobile controls group - RSS and Search on right -->
       <div class="mobile-controls">
-        <ThemeToggle />
-        <a href="https://github.com/jdrhyne2/volks-typo" class="github-star-button" target="_blank" rel="noopener" title="Star on GitHub">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0112 6.82a9.55 9.55 0 012.504.336c1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2z" fill="currentColor"/>
-          </svg>
-          <span class="github-star-text">Star</span>
-        </a>
-        
-        <a href={base + "rss.xml"} class="rss-toggle" title="RSS Feed">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="5" cy="19" r="2" fill="currentColor"/>
-            <path d="M3 3v2c8.284 0 15 6.716 15 15h2c0-9.389-7.611-17-17-17z" fill="currentColor"/>
-            <path d="M3 9v2c4.963 0 9 4.037 9 9h2c0-6.065-4.935-11-11-11z" fill="currentColor"/>
-          </svg>
-          <span class="visually-hidden">RSS</span>
-        </a>
-        
-        <button class="search-toggle" id="search-toggle" aria-label="Search articles">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
-            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
       </div>
     </div>
   </div>
@@ -64,31 +61,16 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
 
 <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
   <ul class="mobile-nav-list">
-    <li><a href={base} class="mobile-nav-link">Home</a></li>
-    <li><a href={base + "blog"} class="mobile-nav-link">Blog</a></li>
-    <li><a href={base + "categories"} class="mobile-nav-link">Categories</a></li>
-    <li><a href={base + "about"} class="mobile-nav-link">About</a></li>
+    <li><a href={base} class="mobile-nav-link">Conocenos</a></li>
+    <li><a href={base + "servicios/ingenierias-para-obras"} class="mobile-nav-link">Ingenierías</a></li>
+    <li><a href={base + "servicios/arquitectura"} class="mobile-nav-link">Arquitectura</a></li>
+    <li><a href={base + "servicios/mecanica-de-suelos"} class="mobile-nav-link">Estudios</a></li>
+    <li><a href={base + "servicios/topografia"} class="mobile-nav-link">Topografía</a></li>
+    <li><a href={base + "servicios/saneamiento"} class="mobile-nav-link">Saneamiento</a></li>
   </ul>
 </nav>
-
-<div class="search-overlay" id="search-overlay">
-  <div class="search-container">
-    <div class="search-header">
-      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
-      <button class="search-close" id="search-close" aria-label="Close search">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
-          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </button>
-    </div>
-    <div class="search-results" id="search-results"></div>
-  </div>
-</div>
-
 <script>
   const base = `${import.meta.env.BASE_URL || ''}`;
-  
   // Hamburger menu functionality
   function initHamburgerMenu() {
     const hamburgerToggle = document.getElementById('hamburger-toggle');
@@ -243,6 +225,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
   function init() {
     initHamburgerMenu();
     initSearch();
+    //console.log(url);
   }
 
   if (document.readyState === 'loading') {
@@ -268,7 +251,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     padding: 0 var(--content-padding);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: calc(var(--grid-unit) * 2);
   }
@@ -521,6 +504,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: center;
     gap: calc(var(--grid-unit) * 3);
   }
 
@@ -542,6 +526,14 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     text-decoration: none;
   }
 
+  .nav-link-active{
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+    text-decoration: none;
+  }
+
+    
+  }
   .rss-link {
     display: flex;
     align-items: center;

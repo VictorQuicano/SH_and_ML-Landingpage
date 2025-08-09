@@ -1,0 +1,122 @@
+---
+// VisitCounter.astro
+// Este componente cuenta las visitas del lado del cliente usando localStorage
+
+interface Props {
+  pageName?: string;
+  showIcon?: boolean;
+  className?: string;
+}
+
+const { pageName = "página", showIcon = true, className = "" } = Astro.props;
+---
+
+<div class={`visit-counter ${className}`} id="visit-counter">
+  <span class="text-black">Visitas a esta {pageName}: </span>
+  <span class="counter-number" id="visit-count">0</span>
+</div>
+
+<style>
+  .visit-counter {
+    display: inline-flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #ff930f 0%, #fff95b 100%);
+    color: white;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    width: 100%;
+
+  }
+
+  .visit-counter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .counter-icon {
+    font-size: 1.1rem;
+    animation: blink 2s infinite;
+  }
+
+  .counter-number {
+    font-weight: bold;
+    background: rgb(56, 56, 56);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    min-width: 2rem;
+    text-align: center;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @media (max-width: 768px) {
+    .visit-counter {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+    
+    // Script que se ejecuta en el cliente para manejar el contador
+    function initVisitCounter() {
+    const countElement = document.getElementById('visit-count');
+    const counterContainer = document.getElementById('visit-counter');
+    
+    if (!countElement || !counterContainer) return;
+
+    // Obtener el nombre de la página desde el atributo data o usar la URL actual
+    const pageName = window.location.pathname;
+    const storageKey = `visit-count-${pageName}`;
+    
+    // Inicializar el contador en 0 mientras se carga el valor real
+    countElement.textContent = '0';
+
+    // Obtener el contador actual desde la API
+    fetch('/api/visitas')
+        .then(res => {
+            if (!res.ok) throw new Error("Error en la respuesta de la API");
+            return res.json();
+        })
+        .then(data => {
+            const currentCount = parseInt(data.visitas || 0, 10);
+            animateCounter(countElement, currentCount); // Llamar a la animación aquí
+        })
+        .catch(err => {
+            console.error('Error cargando visitas:', err);
+            // Opcional: Mostrar un valor por defecto (ej: 1000) si falla la API
+            animateCounter(countElement, 1000);
+        });
+}
+
+// Función separada para la animación del contador
+function animateCounter(element, targetCount) {
+    let displayCount = 0;
+    const increment = targetCount > 50 ? Math.ceil(targetCount / 20) : 1;
+    
+    const timer = setInterval(() => {
+        displayCount += increment;
+        if (displayCount >= targetCount) {
+            displayCount = targetCount;
+            clearInterval(timer);
+        }
+        element.textContent = displayCount.toString();
+    }, 50);
+}
+
+// Ejecutar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVisitCounter);
+} else {
+    initVisitCounter();
+}
+</script>

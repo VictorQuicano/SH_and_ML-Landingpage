@@ -7,9 +7,8 @@ export interface SiteConfig {
     avatar?: string;
   };
   social: {
-    github?: string;
-    twitter?: string;
-    instagram?: string;
+    facebook?: string;
+    whatsapp?: string;
     linkedin?: string;
     email?: string;
   };
@@ -17,20 +16,22 @@ export interface SiteConfig {
 }
 
 export const config: SiteConfig = {
-  title: "Volks-Typo",
-  description: "A blog exploring the intersection of design, typography, and history",
+  title: "Ingeniería Soluciones SH & ML S.R.L.",
+  description:
+    "Empresa dedicada a ingenieria y topografia en edificaciones, carreteras, canales, puentes, etc.",
   author: {
-    name: "Your Name",
-    bio: "Writer, designer, and explorer of aesthetic tensions between past and present.",
+    name: "Edwin Miranda Leon",
+    bio: "Ing Civil y Bach en Ing. Industrial.",
     // avatar: "/images/avatar.jpg" // Uncomment and add your avatar image to public/images/
   },
   social: {
-    github: "https://github.com/yourusername",
-    twitter: "https://twitter.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    email: "your.email@example.com"
+    facebook: "https://twitter.com/yourusername",
+    whatsapp: "https://wa.me/51958225370",
+    linkedin:
+      "https://www.linkedin.com/in/edwin-ismael-miranda-le%C3%B3n-0969552a1/?originalSubdomain=pe",
+    email: "shyml_srl@hotmail.com",
   },
-  siteUrl: "https://volks-typo.example.com"
+  siteUrl: "https://ingenieriasoluciones.com.pe/",
 };
 
 // Export constants for SEO component

@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Supervisión de obras por día, mes u obra completa",
+    "description": "Servicio de supervisión técnica y control de calidad durante la ejecución de proyectos de construcción, con modalidades flexibles de contratación",
+    "path": "/images/01_inge/001.jpg"
+  },
+  {
+    "name": "Elaboración de expedientes técnicos",
+    "description": "Desarrollo completo de documentación técnica para viviendas, edificaciones, carreteras, puentes y otros proyectos de infraestructura",
+    "path": "/images/01_inge/002.webp"
+  },
+  {
+    "name": "Ejecución de obra",
+    "description": "Construcción integral de viviendas, edificaciones, obras civiles, naves industriales y otros proyectos de ingeniería",
+    "path": "/images/01_inge/003.jpeg"
+  },
+  {
+    "name": "Diseño estructural",
+    "description": "Análisis y diseño de estructuras en concreto, acero, madera y otros materiales, garantizando seguridad y funcionalidad",
+    "path": "/images/01_inge/003.jpeg"
+  },
+  {
+    "name": "Diseño y ejecución de pavimentos",
+    "description": "Diseño técnico e implementación de pavimentos asfálticos, rígidos y otros tipos de superficie de rodadura",
+    "path": "/images/01_inge/004.jfif"
+  },
+  {
+    "name": "Elaboración de presupuestos para obra",
+    "description": "Análisis detallado de costos, metrados y presupuestos para proyectos de construcción e infraestructura",
+    "path": "/images/01_inge/005.png"
+  },
+  {
+    "name": "Control de calidad",
+    "description": "Verificación y control de calidad de equipamiento eléctrico, mecánico eléctrico, concreto, suelos y materiales de construcción",
+    "path": "/images/01_inge/006.png"
+  },
+  {
+    "name": "Estudio de mecánica de suelos y geotecnia",
+    "description": "Análisis técnico de las propiedades mecánicas y geotécnicas del suelo para fundamentar diseños estructurales",
+    "path": "/images/01_inge/007a.jpg"
+  },
+  {
+    "name": "Cálculos e informes para estabilidad de taludes",
+    "description": "Evaluación técnica y análisis de estabilidad de taludes naturales y artificiales con recomendaciones de diseño",
+    "path": "/images/01_inge/007b.jpg"
+  },
+  {
+    "name": "Obras de movimiento de tierras y nivelación",
+    "description": "Ejecución de trabajos de excavación, relleno, compactación y nivelación de terrenos para proyectos de construcción",
+    "path": "/images/01_inge/008.jpeg"
+  },
+  {
+    "name": "Asesoría para licencias de construcción y trámites municipales",
+    "description": "Consultoría especializada para obtención de permisos, licencias y gestión de trámites ante entidades municipales",
+    "path": "/images/01_inge/006.png"
+  }
+]

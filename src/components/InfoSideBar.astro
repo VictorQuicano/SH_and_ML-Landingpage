@@ -1,0 +1,49 @@
+---
+import VisitCounter from "./VisitCounter.astro" 
+---
+<div class="!flex !flex-col !gap-6 !px-6 !py-10 info-sidebar !w-full !md:w-fit">
+    <div class="sticky top-[110px]">
+        <div class="flex flex-col items-center text-center">
+            <div class="rounded-full bg-white flex justify-center items-center p-2 w-30 h-30">
+                <img src="/favicon.svg" alt="Logo SH & ML" class="w-24 h-24 mb-4 !border-none"/>
+            </div>
+            <div class="flex gap-2 items-end justify-center !mt-2">
+                <h3 class="company-name !m-0 !font-bold">SH & ML</h3>
+                <h4 class="company-name !m-0 !font-bold">S.R.L.</h4>
+            </div>
+            <h4 class="company-name">Ingeniería Soluciones</h4>
+        </div>
+        <section itemscope itemtype="https://schema.org/Organization">
+            <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" class="text-center !mb-6 !text-sm !md:text-base">
+                <a href="https://maps.app.goo.gl/PWZDyFJ1LdCjtMzZ7">
+                <span itemprop="streetAddress">Calle Corbacho 116 – Dpto 1</span><br>
+                <span itemprop="addressLocality">Cercado</span> – 
+                <span itemprop="addressRegion">Arequipa</span>, 
+                <span itemprop="addressCountry">Perú</span>
+                </a>
+            </address>
+            
+            <p>📞 Teléfonos: 
+                <a href="tel:+51958225370" itemprop="telephone">+51 958 225 370</a>
+            </p>
+            
+            <p>📧 Correos: 
+                <a href="mailto:shyml_srl@hotmail.com" itemprop="email">shyml_srl@hotmail.com</a>, 
+                <a href="mailto:EDWINMLEON@hotmail.com" itemprop="email">edwinmleon@hotmail.com</a>
+            </p>
+            </section>
+
+        <VisitCounter />
+    </div>
+</div>
+<style>
+    .info-sidebar {
+        background: var(--color-surface);
+    }
+    .company-name {
+        font-family: 'Mulish Variable', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        font-style: italic  !important;
+    }        
+</style>

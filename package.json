@@ -33,12 +33,21 @@
   ],
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
+    "@fontsource-variable/mulish": "^5.2.6",
     "@fontsource/jetbrains-mono": "^5.0.0",
     "@fontsource/oswald": "^5.2.6",
     "@fontsource/roboto-condensed": "^5.2.6",
     "@fontsource/work-sans": "^5.2.6",
-    "astro": "^5.9.1"
+    "@netlify/blobs": "^8.2.0",
+    "astro": "^5.9.1",
+    "keen-slider": "^6.8.6",
+    "lucide-react": "^0.539.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
@@ -47,6 +56,7 @@
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-astro": "^1.2.0",
+    "netlify-cli": "^23.1.2",
     "playwright": "^1.54.1",
     "prettier": "^3.3.0",
     "prettier-plugin-astro": "^0.14.0",

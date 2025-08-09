@@ -10,7 +10,7 @@
   --color-black: #000000;
 
   /* Accent Color */
-  --color-accent-red: #eac01a;
+  --color-accent-red: #ffb300;
 
   /* Semantic Colors */
   --color-background: var(--color-white);
@@ -135,6 +135,24 @@ h3 {
 p {
   margin-bottom: calc(var(--grid-unit) * 2);
   font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem; /* antes 2.5rem */
+  }
+
+  h2 {
+    font-size: 1.75rem; /* antes 2rem */
+  }
+
+  h3 {
+    font-size: 1.25rem; /* antes 1.5rem */
+  }
+
+  p {
+    font-size: 0.75rem; /* antes 1.125rem */
+  }
 }
 
 /* Links */

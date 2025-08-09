@@ -1,126 +1,84 @@
 ---
-import { glob } from 'astro/loaders';
 import Layout from '../components/Layout.astro';
 import underConstruction from '../content/images/underconstruction.png';
 import { Image } from 'astro:assets';
+import Slider from '../components/Slider.jsx';
 
-
-const mdPostsGlob = import.meta.glob('../content/blog/*.md', { eager: true });
-const mdxPostsGlob = import.meta.glob('../content/blog/*.mdx', { eager: true });
-const imageP = underConstruction;
-
-const allPosts = [...Object.values(mdPostsGlob), ...Object.values(mdxPostsGlob)] as any[];
-const sortedPosts = allPosts
-  .sort((a: any, b: any) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
-  .slice(0, 3);
-console.log(underConstruction);
+const allServices = [
+  {
+    "name": "SERVICIOS DE INGENIERIA PARA OBRA",
+    "description": "Supervisión, ejecución y diseño de obras civiles y edificaciones; elaboración de expedientes, presupuestos y estudios técnicos para proyectos de construcción."
+  },
+  {
+    "name": "ARQUITECTURA",
+    "description": "Diseño arquitectónico de viviendas, edificaciones comerciales e industriales; remodelaciones, modelado 3D, renders y asesoría para trámites municipales."
+  },
+  {
+    "name": "ESTUDIOS DE MECANICA DE SUELOS, GEOTECNIA Y CONCRETO",
+    "description": "Investigaciones, ensayos y cálculos geotécnicos para cimentaciones, estabilidad de taludes, diseño de mezclas y control de calidad de materiales."
+  },
+  {
+    "name": "TOPOGRAFIA PROFESIONAL",
+    "description": "Mediciones topográficas con tecnología avanzada, replanteo y control de obra, elaboración de informes y certificación de puntos georreferenciados."
+  },
+  {
+    "name": "SANEAMIENTO FISICO LEGAL",
+    "description": "Asesoría técnica y legal para regularización y saneamiento de predios urbanos y rurales, incluyendo gestión de licencias y trámites municipales."
+  }
+];
+const imagesPath = [
+  '/images/00_inicio/01.jpg',
+  '/images/00_inicio/02.jpeg',
+  '/images/00_inicio/03.png',
+  '/images/00_inicio/04.jpg',
+  '/images/00_inicio/05.jpg',
+  '/images/00_inicio/06.webp',
+  '/images/00_inicio/07.jpg',
+  '/images/00_inicio/08.jpg',
+  '/images/00_inicio/09.jpg',
+  '/images/00_inicio/10.jpg'
+];
 ---
 
 <Layout title="SH & ML S.R.L. Ingeniería Soluciones" description="Empresa dedicada a ingenieria y topografia en edificaciones, carreteras, canales, puentes, etc." showSidebar={false}>
-  <div class="flex flex-col items-center justify-center">
-    <Image src={imageP} alt="Under Construction" class="!border-none"/>
-    <h3>SH & ML S.R.L. Ingeniería Soluciones</h3>
-    <h1>Estamos construyendo algo genial para ti</h1>
-  </div>
-  <!--
     <div class="landing-page">
-      <section class="hero">
+      <section class="hero !pb-6">
         <div class="hero-content">
-          <h1 class="hero-title">Volks-Typo</h1>
-          <p class="hero-subtitle">Bauhaus Meets Monumental</p>
-          <p class="hero-description">
-            An aesthetic exploration where Bauhaus functionalism collides with 
-            monumental grandeur. Form follows function, with a twist.
-          </p>
-          <hr class="hero-rule" />
-          <div class="hero-actions">
-            <a href="#demo" class="btn btn-primary">View Demo</a>
-            <a href="#installation" class="btn btn-secondary">Get Started</a>
-          </div>
+          <Slider images={imagesPath} client:load />
         </div>
       </section>
   
-      <section class="demo-section" id="demo">
+      <section class="demo-section !pt-0" id="demo">
         <div class="container">
-          <h2 class="section-title">Live Demo</h2>
+          <h2 class="section-title">¿Quiénes somos?</h2>
           <p class="demo-description">
-            See the theme in action with sample blog posts that demonstrate all typography, 
-            layout, and design elements working together in perfect dissonant harmony.
+            Somos una empresa especializada en el desarrollo de proyectos de <strong>infraestructura civil e industrial</strong>, así como en la ejecución de obras para el sector público y privado.
           </p>
-          
-          {sortedPosts.length > 0 && (
-            <div class="demo-posts">
-              {sortedPosts.map(post => (
-                <article class="demo-post-card">
-                  <h3 class="demo-post-title">
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                  </h3>
-                  
-                  <div class="demo-post-meta">
-                    <time class="demo-post-date" datetime={post.frontmatter.date}>
-                      {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </time>
-                    <span class="demo-post-reading-time">5 min read</span>
-                  </div>
-                  
-                  {post.frontmatter.excerpt && (
-                    <p class="demo-post-excerpt">{post.frontmatter.excerpt}</p>
-                  )}
-                  
-                  {post.frontmatter.categories && (
-                    <div class="demo-post-categories">
-                      {post.frontmatter.categories.map((category: string) => (
-                        <span class="demo-category">{category}</span>
-                      ))}
-                    </div>
-                  )}
-                </article>
-              ))}
-            </div>
-          )}
-          
-          <div class="demo-actions">
-            <a href={`${import.meta.env.BASE_URL}blog`} class="btn btn-primary">View Blog</a>
-          </div>
+          <p class="demo-description">
+            Nuestro compromiso es ofrecer <strong>soluciones integrales, seguras y eficientes</strong>, respaldadas por un equipo técnico altamente calificado y una gestión enfocada en la calidad y el cumplimiento de plazos.
+          </p>
+          <p class="demo-description">
+            Contamos con arquitectos e ingenieros de diversas especialidades —civil, eléctricos, mecánico-eléctricos, sanitarios, entre otros— con amplia experiencia en obras y proyectos ejecutados. 
+            Ponemos a su disposición nuestra capacidad técnica y trayectoria para garantizar el éxito de cada proyecto.
+          </p>
         </div>
       </section>
+
   
       <section class="features" id="features">
         <div class="container">
-          <h2 class="section-title">Design Philosophy</h2>
+          <h2 class="section-title">Servicios</h2>
           <div class="features-grid">
-            <div class="feature-card">
-              <h3 class="feature-title">Dissonant Harmony</h3>
-              <p class="feature-description">Bauhaus minimalism meets monumental design. Clean aesthetics with bold, commanding presence.</p>
-            </div>
-            <div class="feature-card">
-              <h3 class="feature-title">Perfect Readability</h3>
-              <p class="feature-description">Optimized typography with ideal line lengths and spacing for maximum comprehension.</p>
-            </div>
-            <div class="feature-card">
-              <h3 class="feature-title">Left Aligned</h3>
-              <p class="feature-description">Natural reading flow with consistent left alignment throughout all content.</p>
-            </div>
-            <div class="feature-card">
-              <h3 class="feature-title">Typographic Tension</h3>
-              <p class="feature-description">Cormorant Garamond meets Inter. Classical serif headings contrast modern sans-serif body.</p>
-            </div>
-            <div class="feature-card">
-              <h3 class="feature-title">Constructivist Grid</h3>
-              <p class="feature-description">8-point grid system creates structural order. Blood-red rules command attention.</p>
-            </div>
-            <div class="feature-card">
-              <h3 class="feature-title">Fast Performance</h3>
-              <p class="feature-description">Zero JavaScript, minimal CSS, self-hosted fonts for blazing speed.</p>
-            </div>
+            {allServices.map(service => (
+              <div class="feature-card">
+                <h3 class="feature-title">{service.name}</h3>
+                <p class="feature-description">{service.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-  
+      <!-- 
       <section class="typography-showcase">
         <div class="container">
           <h2 class="section-title">Typography</h2>
@@ -178,8 +136,9 @@ console.log(underConstruction);
           </div>
         </div>
       </section>
+       -->
+
     </div>
-   -->
 </Layout>
 
 <style>

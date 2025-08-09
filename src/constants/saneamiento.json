@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Saneamiento físico legal de predios",
+    "description": "Servicios integrales con arquitectos, ingenieros y abogados especializados en regularización de propiedades",
+    "path": "/images/05_saneamiento/001.jpg"
+  },
+  {
+    "name": "Asesoría y acompañamiento legal inmobiliario",
+    "description": "Consultoría jurídica especializada en predios urbanos, rurales y eriazos, incluyendo procesos de titulación",
+    "path": "/images/05_saneamiento/002.jpg"
+  },
+  {
+    "name": "Asesoría para licencias y trámites municipales",
+    "description": "Gestión y asesoría integral para obtención de licencias de construcción y otros trámites ante autoridades municipales",
+    "path": "/images/05_saneamiento/003.jpg"
+  }
+]
