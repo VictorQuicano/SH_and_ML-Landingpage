@@ -2,7 +2,7 @@ import { getStore } from "@netlify/blobs";
 
 const STORAGE_KEY = "visitas";
 const siteID = import.meta.env.NETLIFY_SITE_ID || "unknown-site";
-const token = import.meta.env.NETLIFY;
+const token = import.meta.env.NETLIFY_TOKEN;
 
 export async function GET() {
   // Verificar si estamos en el proceso de build
