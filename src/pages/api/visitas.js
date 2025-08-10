@@ -3,11 +3,9 @@ import { getStore } from "@netlify/blobs";
 const STORAGE_KEY = "visitas";
 
 export async function GET() {
-  // Configuración para producción en Netlify
   const isNetlifyProduction =
     import.meta.env.NETLIFY && !import.meta.env.NETLIFY_BUILD;
 
-  // Si no estamos en producción Netlify, devolver un valor por defecto
   if (!isNetlifyProduction) {
     return new Response(JSON.stringify({ visitas: 0 }), {
       status: 200,
@@ -25,14 +23,25 @@ export async function GET() {
 
     const currentValue = await blobStore.get(STORAGE_KEY);
     let currentCount = parseInt(currentValue || "0", 10);
-    currentCount++;
+    currentCount = currentCount + 1;
 
     await blobStore.set(STORAGE_KEY, currentCount.toString());
 
-    return new Response(JSON.stringify({ visitas: currentCount }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    // Esperar brevemente (simulación de propagación)
+    await new Promise((r) => setTimeout(r, 500));
+
+    const newValue = await blobStore.get(STORAGE_KEY);
+
+    return new Response(
+      JSON.stringify({
+        visitas: newValue,
+        debug: { old: currentValue, attempted: currentCount },
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
     console.error("Error al actualizar visitas:", error);
     return new Response(
