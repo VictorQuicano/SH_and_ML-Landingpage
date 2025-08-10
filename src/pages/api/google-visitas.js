@@ -23,7 +23,17 @@ export async function GET() {
       if (!doc.exists) {
         t.set(ref, { count: 1 });
       } else {
-        t.update(ref, { count: doc.data().count + 1 });
+        try {
+          t.update(ref, { count: doc.data().count + 1 });
+        } catch (error) {
+          return new Response(
+            JSON.stringify({
+              error: "No se pudo contar visitas",
+              message: error.message,
+            }),
+            { status: 500, headers: { "Content-Type": "application/json" } }
+          );
+        }
       }
     });
 
