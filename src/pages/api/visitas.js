@@ -27,9 +27,15 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Error:", error);
+
     return new Response(
-      JSON.stringify({ error: "Error al actualizar visitas" }),
-      { status: 500 }
+      JSON.stringify({
+        error: "Error al actualizar visitas",
+        message: error?.message || "Sin mensaje",
+        name: error?.name || "Error",
+        stack: error?.stack || null,
+      }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 }
