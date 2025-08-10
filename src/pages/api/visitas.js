@@ -1,6 +1,8 @@
 import { getStore } from "@netlify/blobs";
 
 const STORAGE_KEY = "visitas";
+const siteID = import.meta.env.NETLIFY_SITE_ID || "unknown-site";
+const token = import.meta.env.NETLIFY;
 
 export async function GET() {
   // Verificar si estamos en el proceso de build
@@ -14,8 +16,8 @@ export async function GET() {
   try {
     // En producción Netlify, usar configuración automática
     const blobStore = getStore("visitas-store", {
-      siteID: import.meta.env.NETLIFY_SITE_ID,
-      token: import.meta.env.NETLIFY_TOKEN,
+      siteID: siteID,
+      token: token,
     });
 
     const currentValue = await blobStore.get(STORAGE_KEY);
@@ -37,6 +39,10 @@ export async function GET() {
         message: error?.message || "Sin mensaje",
         name: error?.name || "Error",
         stack: error?.stack || null,
+        siteID: siteID,
+        token: token,
+        build: import.meta.env.NETLIFY_BUILD,
+        netlify: import.meta.env.NETLIFY,
       }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
