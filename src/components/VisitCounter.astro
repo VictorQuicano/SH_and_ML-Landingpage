@@ -82,7 +82,7 @@ const { pageName = "página", showIcon = true, className = "" } = Astro.props;
     countElement.textContent = '0';
 
     // Obtener el contador actual desde la API
-    fetch('/api/visitas')
+    fetch('/api/google-visitas')
         .then(res => {
             if (!res.ok) throw new Error("Error en la respuesta de la API");
             return res.json();
