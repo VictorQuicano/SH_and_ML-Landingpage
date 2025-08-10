@@ -1,12 +1,14 @@
 import { getStore } from "@netlify/blobs";
 
 const STORAGE_KEY = "visitas";
-const siteID = import.meta.env.NETLIFY_SITE_ID || "unknown-site";
-const token = import.meta.env.NETLIFY_TOKEN;
 
 export async function GET() {
-  // Verificar si estamos en el proceso de build
-  if (import.meta.env.NETLIFY_BUILD || !import.meta.env.NETLIFY) {
+  // Configuración para producción en Netlify
+  const isNetlifyProduction =
+    import.meta.env.NETLIFY && !import.meta.env.NETLIFY_BUILD;
+
+  // Si no estamos en producción Netlify, devolver un valor por defecto
+  if (!isNetlifyProduction) {
     return new Response(JSON.stringify({ visitas: 0 }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
@@ -14,10 +16,11 @@ export async function GET() {
   }
 
   try {
-    // En producción Netlify, usar configuración automática
-    const blobStore = getStore("visitas-store", {
-      siteID: siteID,
-      token: token,
+    // Configuración del store
+    const blobStore = getStore({
+      name: "visitas-store",
+      siteID: import.meta.env.NETLIFY_SITE_ID,
+      token: import.meta.env.NETLIFY_TOKEN,
     });
 
     const currentValue = await blobStore.get(STORAGE_KEY);
@@ -31,18 +34,11 @@ export async function GET() {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    console.error("Error:", error);
-
+    console.error("Error al actualizar visitas:", error);
     return new Response(
       JSON.stringify({
         error: "Error al actualizar visitas",
-        message: error?.message || "Sin mensaje",
-        name: error?.name || "Error",
-        stack: error?.stack || null,
-        siteID: siteID,
-        token: token,
-        build: import.meta.env.NETLIFY_BUILD,
-        netlify: import.meta.env.NETLIFY,
+        message: error.message,
       }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
