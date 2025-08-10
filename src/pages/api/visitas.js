@@ -4,7 +4,7 @@ const STORAGE_KEY = "visitas";
 
 export async function GET() {
   // Verificar si estamos en el proceso de build
-  if (process.env.NETLIFY_BUILD || !process.env.NETLIFY) {
+  if (import.meta.env.NETLIFY_BUILD || !import.meta.env.NETLIFY) {
     return new Response(JSON.stringify({ visitas: 0 }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
