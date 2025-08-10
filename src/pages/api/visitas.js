@@ -5,19 +5,20 @@ const siteID = import.meta.env.NETLIFY_SITE_ID;
 const token = import.meta.env.NETLIFY_TOKEN;
 const environment = import.meta.env.NODE_ENV;
 
-const blobStore =
-  environment === "development"
-    ? getStore({
-        name: "visitas-store",
-        siteID: siteID,
-        token: token,
-      })
-    : getStore("visitas-store");
+let blobStore;
 
 const STORAGE_KEY = "visitas";
 
 export async function GET() {
-  console.log(environment);
+  if (process.env.NETLIFY) {
+    blobStore = getStore("visitas-store");
+  } else {
+    blobStore = getStore({
+      name: "visitas-store",
+      siteID: process.env.NETLIFY_SITE_ID,
+      token: process.env.NETLIFY_TOKEN,
+    });
+  }
   try {
     const currentValue = await blobStore.get(STORAGE_KEY);
     let currentCount = parseInt(currentValue || "0", 10);
