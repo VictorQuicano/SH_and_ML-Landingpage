@@ -28,3 +28,6 @@ claude-conversations/
 
 # Claude conversation logs
 .claude-conversations/
+
+# Local Netlify folder
+.netlify

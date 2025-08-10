@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +11,8 @@ export default defineConfig({
   // Only use base path for GitHub Pages deployments
   // For Netlify/Vercel, leave this undefined (no base path)
   base: process.env.BASE_PATH || undefined,
+  output: "server",
+  adapter: netlify({}),
   integrations: [mdx(), react()],
   markdown: {
     shikiConfig: {
