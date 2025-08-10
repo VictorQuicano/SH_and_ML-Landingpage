@@ -3,16 +3,21 @@ import { getStore } from "@netlify/blobs";
 // Configuración manual para entorno local
 const siteID = import.meta.env.NETLIFY_SITE_ID;
 const token = import.meta.env.NETLIFY_TOKEN;
+const environment = import.meta.env.NODE_ENV;
 
-const blobStore = getStore({
-  name: "visitas-store",
-  siteID: siteID,
-  token: token,
-});
+const blobStore =
+  environment === "development"
+    ? getStore({
+        name: "visitas-store",
+        siteID: siteID,
+        token: token,
+      })
+    : getStore("visitas-store");
 
 const STORAGE_KEY = "visitas";
 
 export async function GET() {
+  console.log(environment);
   try {
     const currentValue = await blobStore.get(STORAGE_KEY);
     let currentCount = parseInt(currentValue || "0", 10);
@@ -31,12 +36,4 @@ export async function GET() {
       { status: 500 }
     );
   }
-  //console.log(token, siteID);
-  //if (process.env.NODE_ENV !== "development") {
-  //  fakeBlobs[STORAGE_KEY] = (fakeBlobs[STORAGE_KEY] || 0) + 1;
-  //  return new Response(JSON.stringify({ visitas: fakeBlobs[STORAGE_KEY] }), {
-  //    status: 200,
-  //  });
-  //} else {
-  //}
 }
