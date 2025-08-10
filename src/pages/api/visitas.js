@@ -5,18 +5,17 @@ const siteID = import.meta.env.NETLIFY_SITE_ID;
 const token = import.meta.env.NETLIFY_TOKEN;
 const environment = import.meta.env.NODE_ENV;
 
-let blobStore;
-
 const STORAGE_KEY = "visitas";
-
 export async function GET() {
-  if (process.env.NETLIFY) {
+  let blobStore;
+
+  if (environment === "production" && process.env.NETLIFY) {
     blobStore = getStore("visitas-store");
   } else {
     blobStore = getStore({
       name: "visitas-store",
-      siteID: process.env.NETLIFY_SITE_ID,
-      token: process.env.NETLIFY_TOKEN,
+      siteID: siteID,
+      token: token,
     });
   }
   try {
