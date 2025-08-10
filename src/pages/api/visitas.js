@@ -7,10 +7,7 @@ const token = "nfp_FbGs9B7G421zvx8WssfGfmbYbR3Y21fj42a0";
 //
 const STORAGE_KEY = "visitas";
 export async function GET() {
-  const blobStore = getStore("visitas-store", {
-    siteID: siteID,
-    token: token,
-  });
+  const blobStore = getStore("visitas-store");
   try {
     const currentValue = await blobStore.get(STORAGE_KEY);
     let currentCount = parseInt(currentValue || "0", 10);
