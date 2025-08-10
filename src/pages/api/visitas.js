@@ -13,7 +13,10 @@ export async function GET() {
 
   try {
     // En producción Netlify, usar configuración automática
-    const blobStore = getStore("visitas-store");
+    const blobStore = getStore("visitas-store", {
+      siteID: import.meta.env.NETLIFY_SITE_ID,
+      token: import.meta.env.NETLIFY_TOKEN,
+    });
 
     const currentValue = await blobStore.get(STORAGE_KEY);
     let currentCount = parseInt(currentValue || "0", 10);
