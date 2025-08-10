@@ -42,7 +42,11 @@ export async function GET() {
 
     return new Response(JSON.stringify({ visitas: count }), {
       status: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+      },
     });
   } catch (error) {
     console.error("Error contando visitas:", error);
