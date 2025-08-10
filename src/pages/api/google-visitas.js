@@ -34,7 +34,10 @@ export async function GET() {
   } catch (error) {
     console.error("Error contando visitas:", error);
     return new Response(
-      JSON.stringify({ error: "No se pudo contar visitas" }),
+      JSON.stringify({
+        error: "No se pudo contar visitas",
+        message: error.message,
+      }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
