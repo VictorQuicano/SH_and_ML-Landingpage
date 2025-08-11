@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import Layout from '../../components/Layout.astro';
 import ingenierias from '../../constants/ingenierias.json';
 import arquitectura from '../../constants/arquitectura.json';
@@ -25,7 +26,7 @@ export async function getStaticPaths() {
 const { serviceData } = Astro.props;
 ---
 
-<Layout title={`${serviceData.name} - Volks-Typo`} description={`All posts in the ${serviceData.name} category`} showSidebar={false}>
+<Layout title={`${serviceData.name} - SH & ML S.R.L. Ingeniería Soluciones`} description={`Servicios de ${serviceData.name} brindados por Ingeniería soluciones, no dude en contactarnos para más información`} showSidebar={false}>
   <div class="category-page">
     <header class="page-header">
       <h1 class="page-title">{serviceData.name}</h1>
