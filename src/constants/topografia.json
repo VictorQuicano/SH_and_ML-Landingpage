@@ -1,27 +1,19 @@
-[
-  {
-    "name": "Medición y levantamiento topográfico",
-    "description": "Levantamientos topográficos altimétricos y planimétricos, catastros, saneamiento físico legal y topografía para proyectos",
-    "path": "/images/04_topo/001.JPG"
-  },
-  {
-    "name": "Control de obra y replanteos",
-    "description": "Estaqueo de perímetros y lotizaciones, replanteo de ejes estructurales, carreteras, puentes, control de movimiento de tierras y estructuras",
-    "path": "/images/04_topo/002.jpg"
-  },
-  {
-    "name": "Tecnología topográfica avanzada",
-    "description": "Utilización de drones, GPS, LiDAR y otras tecnologías modernas para levantamientos de alta precisión",
-    "path": "/images/04_topo/003.jpg"
-  },
-  {
-    "name": "Certificación de puntos geodésicos",
-    "description": "Establecimiento y certificación de puntos topográficos enlazados a la red geodésica nacional del IGN",
-    "path": "/images/04_topo/004.jpg"
-  },
-  {
-    "name": "Elaboración de informes técnicos topográficos",
-    "description": "Desarrollo de documentación técnica y memorias descriptivas de trabajos topográficos realizados",
-    "path": "/images/04_topo/006.png"
-  }
-]
+{
+  "services": [
+    "Medición y levantamiento topográfico",
+    "Control de obra y replanteos",
+    "Tecnología topográfica avanzada",
+    "Certificación de puntos geodésicos",
+    "Elaboración de informes técnicos topográficos"
+  ],
+  "images": [
+    "/images/04_topo/001.JPG",
+    "/images/04_topo/002.jpg",
+    "/images/04_topo/003.jpg",
+    "/images/04_topo/004.jpg",
+    "/images/04_topo/006.png",
+    "/images/04_topo/007.jpg",
+    "/images/04_topo/008.jpg",
+    "/images/04_topo/009.jpg"
+  ]
+}

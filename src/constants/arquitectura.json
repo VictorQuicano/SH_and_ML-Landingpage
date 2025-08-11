@@ -1,62 +1,23 @@
-[
-  {
-    "name": "Diseño de viviendas unifamiliares y multifamiliares",
-    "description": "Desarrollo de proyectos arquitectónicos residenciales, desde viviendas individuales hasta complejos habitacionales",
-    "path": "/images/02_arqui/001.jfif"
-  },
-  {
-    "name": "Diseño de edificaciones comerciales e industriales",
-    "description": "Proyectos arquitectónicos para centros comerciales, oficinas, almacenes, plantas industriales y edificaciones corporativas",
-    "path": "/images/02_arqui/002.png"
-  },
-  {
-    "name": "Diseño de oficinas, locales institucionales y recreativos",
-    "description": "Diseño arquitectónico de espacios de trabajo, edificaciones públicas, centros recreativos y equipamiento urbano",
-    "path": "/images/02_arqui/003.jpg"
-  },
-  {
-    "name": "Diseño de interiores",
-    "description": "Diseño integral de espacios interiores residenciales, comerciales y corporativos, incluyendo mobiliario y ambientación",
-    "path": "/images/02_arqui/004.jpg"
-  },
-  {
-    "name": "Ampliaciones, remodelaciones y reestructuración arquitectónica",
-    "description": "Modificación y mejora de edificaciones existentes, incluyendo cambios estructurales y redistribución de espacios",
-    "path": "/images/02_arqui/005.avif"
-  },
-  {
-    "name": "Proyectos de renovación y recuperación de espacios públicos",
-    "description": "Diseño para revitalización de plazas, parques, calles y otros espacios de uso público y comunitario",
-    "path": "/images/02_arqui/001.jfif"
-  },
-  {
-    "name": "Diseño arquitectónico sostenible y bioclimático",
-    "description": "Proyectos arquitectónicos con enfoque ecológico, eficiencia energética y adaptación al clima local",
-    "path": "/images/02_arqui/002.png"
-  },
-  {
-    "name": "Elaboración de planos arquitectónicos",
-    "description": "Desarrollo técnico de plantas, cortes, elevaciones y detalles constructivos para proyectos arquitectónicos",
-    "path": "/images/02_arqui/003.jpg"
-  },
-  {
-    "name": "Diseño detallado en AutoCAD, Revit y BIM",
-    "description": "Modelado arquitectónico utilizando software especializado y metodología BIM para mayor precisión y coordinación",
-    "path": "/images/02_arqui/004.jpg"
-  },
-  {
-    "name": "Control de calidad en ejecución de acabados y detalles",
-    "description": "Supervisión técnica de la calidad en acabados arquitectónicos y detalles constructivos durante la obra",
-    "path": "/images/02_arqui/005.avif"
-  },
-  {
-    "name": "Asesoría para licencias de construcción y trámites municipales",
-    "description": "Gestión y asesoría para obtención de permisos de construcción y trámites ante autoridades municipales",
-    "path": "/images/02_arqui/001.jfif"
-  },
-  {
-    "name": "Modelado 3D y visualización arquitectónica",
-    "description": "Modelado tridimensional, renders fotorrealistas interiores y exteriores, y recorridos virtuales animados de proyectos",
-    "path": "/images/02_arqui/002.png"
-  }
-]
+{
+  "services": [
+    "Diseño de viviendas unifamiliares y multifamiliares",
+    "Diseño de edificaciones comerciales e industriales",
+    "Diseño de oficinas, locales institucionales y recreativos",
+    "Diseño de interiores",
+    "Ampliaciones, remodelaciones y reestructuración arquitectónica",
+    "Proyectos de renovación y recuperación de espacios públicos",
+    "Diseño arquitectónico sostenible y bioclimático",
+    "Elaboración de planos arquitectónicos",
+    "Diseño detallado en AutoCAD, Revit y BIM",
+    "Control de calidad en ejecución de acabados y detalles",
+    "Asesoría para licencias de construcción y trámites municipales",
+    "Modelado 3D y visualización arquitectónica"
+  ],
+  "images": [
+    "/images/02_arqui/001.jfif",
+    "/images/02_arqui/002.png",
+    "/images/02_arqui/003.jpg",
+    "/images/02_arqui/004.jpg",
+    "/images/02_arqui/005.avif"
+  ]
+}

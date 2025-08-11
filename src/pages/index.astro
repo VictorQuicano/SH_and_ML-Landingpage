@@ -46,31 +46,32 @@ const imagesPath = [
 ];
 ---
 
-<Layout title="SH & ML S.R.L. Ingeniería Soluciones" description="Empresa dedicada a ingenieria y topografia en edificaciones, carreteras, canales, puentes, etc." showSidebar={false}>
-    <div class="landing-page grid grid-cols-1 md:grid-cols-2">
-      <section class="hero !pb-6">
-        <div class="hero-content">
-          <Slider images={imagesPath} client:load />
-        </div>
-      </section>
-  
-      <section class="demo-section !pt-0" id="demo">
-        <div class="container">
-          <h2 class="section-title">¿Quiénes somos?</h2>
-          <p class="demo-description">
-            Somos una empresa especializada en el desarrollo de proyectos de <strong>infraestructura civil e industrial</strong>, así como en la ejecución de obras para el sector público y privado.
-          </p>
-          <p class="demo-description">
-            Nuestro compromiso es ofrecer <strong>soluciones integrales, seguras y eficientes</strong>, respaldadas por un equipo técnico altamente calificado y una gestión enfocada en la calidad y el cumplimiento de plazos.
-          </p>
-          <p class="demo-description">
-            Contamos con arquitectos e ingenieros de diversas especialidades —civil, eléctricos, mecánico-eléctricos, sanitarios, entre otros— con amplia experiencia en obras y proyectos ejecutados. 
-            Ponemos a su disposición nuestra capacidad técnica y trayectoria para garantizar el éxito de cada proyecto.
-          </p>
-        </div>
-      </section>
+<Layout title="Ingeniería y Topografía en Edificaciones, Carreteras y Puentes en Perú | SH & ML S.R.L. Ingeniería Soluciones" description="SH & ML S.R.L. Ingeniería Soluciones ofrece servicios profesionales de ingeniería, topografía, arquitectura, mecánica de suelos y saneamiento físico legal en Arequipa y todo el Perú. Experiencia en obras civiles, edificaciones, carreteras, puentes y más. Contáctenos para su proyecto." showSidebar={false}>
+  <h2 class="section-title">¿Quiénes somos?</h2>
+    <div class="landing-page">
+      <div class="who-we-are grid grid-cols-1 md:grid-cols-3">
+        <section class="hero col-span-full md:col-span-2">
+          <div class="hero-content">
+            <Slider images={imagesPath} client:load />
+          </div>
+        </section>
+    
+        <section class="demo-section !pt-0" id="demo">
+          <div class="container">
+            <p class="demo-description">
+              Somos una empresa especializada en el desarrollo de proyectos de <strong>infraestructura civil e industrial</strong>, así como en la ejecución de obras para el sector público y privado.
+            </p>
+            <p class="demo-description">
+              Nuestro compromiso es ofrecer <strong>soluciones integrales, seguras y eficientes</strong>, respaldadas por un equipo técnico altamente calificado y una gestión enfocada en la calidad y el cumplimiento de plazos.
+            </p>
+            <p class="demo-description">
+              Contamos con arquitectos e ingenieros de diversas especialidades —civil, eléctricos, mecánico-eléctricos, sanitarios, entre otros— con amplia experiencia en obras y proyectos ejecutados. 
+              Ponemos a su disposición nuestra capacidad técnica y trayectoria para garantizar el éxito de cada proyecto.
+            </p>
+          </div>
+        </section>
+      </div>
 
-  
       <section class="features col-span-full" id="features">
         <div class="container">
           <h2 class="section-title">Servicios</h2>
@@ -151,6 +152,9 @@ const imagesPath = [
   .landing-page {
     width: 100%;
   }
+  .who-we-are {
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+  }
 
   .container {
     max-width: 1200px;
@@ -160,8 +164,6 @@ const imagesPath = [
 
   .hero {
     text-align: center;
-    padding: calc(var(--grid-unit) * 12) 0 calc(var(--grid-unit) * 8);
-    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
   }
 
   .hero-content {
@@ -282,7 +284,7 @@ const imagesPath = [
   }
 
   .features {
-    padding: calc(var(--grid-unit) * 8) 0;
+    padding: calc(var(--grid-unit) * 1) 0;
   }
 
   .section-title {
@@ -426,10 +428,10 @@ const imagesPath = [
 
   .demo-description {
     text-align: center;
-    font-size: 1.125rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: var(--color-text-secondary);
-    margin-bottom: calc(var(--grid-unit) * 6);
+    margin-bottom: calc(var(--grid-unit) * 3);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;

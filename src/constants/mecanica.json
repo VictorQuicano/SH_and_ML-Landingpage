@@ -1,57 +1,27 @@
-[
-  {
-    "name": "Estudios de suelos para edificaciones y puentes",
-    "description": "Investigación geotécnica completa incluyendo capacidad portante para cimentaciones de estructuras y puentes",
-    "path": "/images/03_suelos/001.jpg"
-  },
-  {
-    "name": "Estudios de suelos para vías y pavimentos",
-    "description": "Análisis geotécnico para diseño de pavimentos y vías, incluyendo ensayos CBR y características del suelo de fundación",
-    "path": "/images/03_suelos/001.png"
-  },
-  {
-    "name": "Determinación del tipo de cimentación óptima",
-    "description": "Evaluación técnica para recomendar el sistema de cimentación más adecuado: superficial o profunda",
-    "path": "/images/03_suelos/002.webp"
-  },
-  {
-    "name": "Diseño de mezclas y rotura de probetas de concreto",
-    "description": "Desarrollo de diseños de mezcla de concreto y ensayos de resistencia mediante rotura de probetas",
-    "path": "/images/03_suelos/003.webp"
-  },
-  {
-    "name": "Ensayos de campo geotécnicos",
-    "description": "Ejecución de calicatas, densidad natural, grado de compactación, permeabilidad y otros ensayos in-situ",
-    "path": "/images/03_suelos/004.jfif"
-  },
-  {
-    "name": "Ensayos individuales de suelos",
-    "description": "Determinación de propiedades específicas: humedad, densidad natural, granulometría, permeabilidad y otras características",
-    "path": "/images/03_suelos/004.webp"
-  },
-  {
-    "name": "Cálculos e informes para estabilidad de taludes",
-    "description": "Análisis de estabilidad de taludes incluyendo ensayos específicos y recomendaciones de diseño",
-    "path": "/images/03_suelos/005.jpg"
-  },
-  {
-    "name": "Ensayos geotécnicos especializados",
-    "description": "Ejecución de ensayos de densidad, humedad, Proctor, granulometría, límites de Atterberg, CBR, corte directo y permeabilidad",
-    "path": "/images/03_suelos/006.jfif"
-  },
-  {
-    "name": "Cálculos especiales geotécnicos",
-    "description": "Evaluación de suelos expansivos o colapsables, licuación de suelos, cálculo de asentamientos y análisis especializados",
-    "path": "/images/03_suelos/007.jpg"
-  },
-  {
-    "name": "Cálculo de parámetros geotécnicos para diseño estructural",
-    "description": "Determinación de parámetros geotécnicos necesarios para el diseño de cimentaciones y estructuras",
-    "path": "/images/03_suelos/008.jpg"
-  },
-  {
-    "name": "Ensayos geofísicos",
-    "description": "Sondeos eléctricos verticales (SEV) y análisis multicanal de ondas superficiales (MASW) para caracterización del subsuelo",
-    "path": "/images/03_suelos/001.jpg"
-  }
-]
+{
+  "services": [
+    "Estudios de suelos para edificaciones y puentes",
+    "Estudios de suelos para vías y pavimentos",
+    "Determinación del tipo de cimentación óptima",
+    "Diseño de mezclas y rotura de probetas de concreto",
+    "Ensayos de campo geotécnicos",
+    "Ensayos individuales de suelos",
+    "Cálculos e informes para estabilidad de taludes",
+    "Ensayos geotécnicos especializados",
+    "Cálculos especiales geotécnicos",
+    "Cálculo de parámetros geotécnicos para diseño estructural",
+    "Ensayos geofísicos"
+  ],
+  "images": [
+    "/images/03_suelos/001.jpg",
+    "/images/03_suelos/001.png",
+    "/images/03_suelos/002.webp",
+    "/images/03_suelos/003.webp",
+    "/images/03_suelos/004.jfif",
+    "/images/03_suelos/004.webp",
+    "/images/03_suelos/005.jpg",
+    "/images/03_suelos/006.jfif",
+    "/images/03_suelos/007.jpg",
+    "/images/03_suelos/008.jpg"
+  ]
+}

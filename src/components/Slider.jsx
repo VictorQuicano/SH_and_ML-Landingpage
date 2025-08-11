@@ -10,7 +10,7 @@ const Slider = ({ images = [] }) => {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -45,7 +45,7 @@ const Slider = ({ images = [] }) => {
   }
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+    <div className="relative w-full mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
       {/* Contenedor de imágenes */}
       <div className="relative h-64 md:h-96 overflow-hidden">
         <div

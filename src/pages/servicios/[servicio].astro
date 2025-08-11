@@ -8,6 +8,8 @@ import topografia from '../../constants/topografia.json';
 import saneamiento from '../../constants/saneamiento.json';
 import SlideSlider from '../../components/SlideSlider';
 
+import Slider from '../../components/Slider.jsx';
+
 export async function getStaticPaths() {
   const navItems = [
     { name: "Servicios de Ingeniería para Obra", path: "ingenierias-para-obras", items: ingenierias },
@@ -26,63 +28,68 @@ export async function getStaticPaths() {
 const { serviceData } = Astro.props;
 ---
 
-<Layout title={`${serviceData.name} - SH & ML S.R.L. Ingeniería Soluciones`} description={`Servicios de ${serviceData.name} brindados por Ingeniería soluciones, no dude en contactarnos para más información`} showSidebar={false}>
+<Layout
+  title={`${serviceData.name} en Perú | SH & ML S.R.L. Ingeniería Soluciones`}
+  description={`Servicios profesionales de ${serviceData.name} en edificaciones, carreteras, puentes y más. Contáctenos para asesoría y cotización en todo el Perú.`}
+  showSidebar={false}
+>
   <div class="category-page">
     <header class="page-header">
       <h1 class="page-title">{serviceData.name}</h1>
-      <!--
-        <p class="page-description">
-          {posts.length} article{posts.length === 1 ? '' : 's'} in this category
-        </p>
-       -->
       <hr class="page-rule" />
     </header>
-    <div class="flex w-full">
-      <SlideSlider items={serviceData.items}  client:load />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="col-span-full md:col-span-2">
+        <div class="sticky top-[300px] z-10 bg-white p-4 shadow-md">
+          <Slider images={serviceData.items.images} client:load />
+        </div>
+      </div>
+      <div class="features-grid">
+        {serviceData.items.services.map(service => (
+          <div class="feature-card !flex !items-center !justify-center flex-col">
+            <h5 class="feature-title !m-0">{service}</h5>
+          </div>
+        ))}
+      </div>
     </div>
-
-
-    <!--
-        <div class="posts-list">
-          {posts.map((post: any) => (
-            <article class="post-item">
-              <h2 class="post-title">
-                <a href={`${base}blog/${post.file.split('/').pop()?.replace(/\.(md|mdx)$/, '')}`}>
-                  {post.frontmatter.title}
-                </a>
-              </h2>
-              
-              <div class="post-meta">
-                <time class="post-date" datetime={post.frontmatter.date}>
-                  {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </time>
-              </div>
-              
-              {post.frontmatter.excerpt && (
-                <p class="post-excerpt">{post.frontmatter.excerpt}</p>
-              )}
-              
-              <a href={`${base}blog/${post.file.split('/').pop()?.replace('.md', '')}`} class="read-more">
-                Read More →
-              </a>
-            </article>
-          ))}
-        </div>
-    
-        <div class="page-navigation">
-          <a href={`${base}categories`} class="back-link">← Back to All Categories</a>
-        </div>
-     -->
   </div>
 </Layout>
 
 <style>
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: calc(var(--grid-unit) * 1);
+  }
+
+  .feature-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: calc(var(--grid-unit) * 1);
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    min-height: 70px;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+    cursor: pointer;
+  }
+  .feature-title {
+    font-family: var(--font-heading-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .feature-title:hover {
+    color: var(--color-accent);
+  }
   .category-page {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
   }
 

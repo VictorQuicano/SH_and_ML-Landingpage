@@ -1,42 +1,79 @@
 ---
-import VisitCounter from "./VisitCounter.astro" 
+
+import { config } from '../config';
 ---
-<div class="!flex !flex-col !gap-6 !px-6 !py-10 info-sidebar !w-full !md:w-fit">
-    <div class="sticky top-[110px]">
+<section itemscope itemtype="https://schema.org/Organization" class="!flex !px-6 !pt-0 !pb-2 info-sidebar !w-full !md:w-fit justify-between">
+    <div class="flex !gap-4">
         <div class="flex flex-col items-center text-center">
             <div class="rounded-full bg-white flex justify-center items-center p-2 w-30 h-30">
                 <img src="/favicon.svg" alt="Logo SH & ML" class="w-24 h-24 mb-4 !border-none"/>
             </div>
-            <div class="flex gap-2 items-end justify-center !mt-2">
-                <h3 class="company-name !m-0 !font-bold">SH & ML</h3>
-                <h4 class="company-name !m-0 !font-bold">S.R.L.</h4>
-            </div>
-            <h4 class="company-name">Ingeniería Soluciones</h4>
         </div>
-        <section itemscope itemtype="https://schema.org/Organization">
-            <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" class="text-center !mb-6 !text-sm !md:text-base">
-                <a href="https://maps.app.goo.gl/PWZDyFJ1LdCjtMzZ7">
+        <div class="flex flex-col items-center justify-center">
+            <div class="flex gap-2 items-end justify-center">
+                <h3 class="company-name !m-0 !font-bold">SH & ML</h3>
+                <h5 class="company-name !m-0 !font-bold">S.R.L.</h5>
+            </div>
+            <h4 class="company-name !mb-1">Ingeniería Soluciones</h4>
+            <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" class="text-center">
+                <a href="https://maps.app.goo.gl/PWZDyFJ1LdCjtMzZ7" class="!text-xs !md:text-base">
                 <span itemprop="streetAddress">Calle Corbacho 116 – Dpto 1</span><br>
-                <span itemprop="addressLocality">Cercado</span> – 
-                <span itemprop="addressRegion">Arequipa</span>, 
-                <span itemprop="addressCountry">Perú</span>
+                <div class="flex gap-0 justify-center items-center">
+                    <span itemprop="addressLocality">Cercado</span> – 
+                    <span itemprop="addressRegion">Arequipa</span>, 
+                    <span itemprop="addressCountry">Perú</span>
+                </div>
                 </a>
             </address>
-            
-            <p>📞 Teléfonos: 
-                <br/>
-                <a href="tel:+51958225370" target="_blank"   itemprop="telephone">+51 958 225 370</a>
-            </p>
-            
-            <p>📧 Correos: 
-                <a target="_blank" href="mailto:shyml_srl@hotmail.com" itemprop="email">shyml_srl@hotmail.com</a>, 
-                <a target="_blank" href="mailto:EDWINMLEON@hotmail.com" itemprop="email">edwinmleon@hotmail.com</a>
-            </p>
-            </section>
-
-        <VisitCounter />
+        </div>
     </div>
-</div>
+    <div class="social-links">
+            {config.social.facebook && (
+                <a href={config.social.facebook} target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+                </a>
+            )}
+            
+            {config.social.whatsapp && (
+                <a href={config.social.whatsapp} target="_blank" rel="noopener" aria-label="Whatsapp" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+    
+                </svg>
+                </a>
+            )}
+            {config.social.linkedin && (
+                <a href={config.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                </a>
+            )}
+            
+            {config.social.email && (
+                <a href={`mailto:${config.social.email}`} aria-label="Email" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+                </svg>
+                </a>
+            )}
+        </div>
+    <div class="flex flex-col gap-2 items-end justify-center">
+        <div class="flex !gap-x-8">
+            <div class="flex flex-col">
+                <span class="text-sm font-semibold">📞 Teléfonos:</span>
+                <a href="tel:+51958225370" target="_blank"   itemprop="telephone">+51 958 225 370</a>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-sm font-semibold">📧 Correos:</span>
+                <a target="_blank" href="mailto:shyml_srl@hotmail.com" itemprop="email">shyml_srl@hotmail.com</a>
+                <a target="_blank" href="mailto:EDWINMLEON@hotmail.com" itemprop="email">edwinmleon@hotmail.com</a>
+            </div>
+        </div>
+    </div>
+</section>
 <style>
     .info-sidebar {
         background: var(--color-surface);
@@ -46,5 +83,40 @@ import VisitCounter from "./VisitCounter.astro"
         font-weight: 600;
         letter-spacing: 0.01em;
         font-style: italic  !important;
-    }        
+    }
+    .social-links {
+        display: flex;
+        gap: calc(var(--grid-unit) * 1.5);
+        align-items: center;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background-color: var(--color-text-primary);
+        color: var(--color-background);
+        border-radius: 4px;
+        transition: all 0.2s ease;
+    }
+
+    .social-link:hover,
+    .social-link:focus {
+        background-color: var(--color-accent);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .social-link svg {
+        width: 16px;
+        height: 16px;
+    }
+    @media (max-width: 768px) {
+
+        .social-links {
+        order: 1;
+        }
+    }
 </style>
