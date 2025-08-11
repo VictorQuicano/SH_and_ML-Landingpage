@@ -35,7 +35,7 @@ const SlideSlider = ({ items = [] }) => {
 
     const interval = setInterval(() => {
       goToNext();
-    }, 30000);
+    }, 5000); // 5000 ms = 5 segundos
 
     return () => clearInterval(interval);
   }, [goToNext, items.length]);

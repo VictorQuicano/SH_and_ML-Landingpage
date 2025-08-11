@@ -7,23 +7,29 @@ import Slider from '../components/Slider.jsx';
 const allServices = [
   {
     "name": "SERVICIOS DE INGENIERIA PARA OBRA",
-    "description": "Supervisión, ejecución y diseño de obras civiles y edificaciones; elaboración de expedientes, presupuestos y estudios técnicos para proyectos de construcción."
+    "description": "Supervisión, ejecución y diseño de obras civiles y edificaciones; elaboración de expedientes, presupuestos y estudios técnicos para proyectos de construcción.",
+    "path": "servicios/ingenierias-para-obras/"
   },
   {
     "name": "ARQUITECTURA",
-    "description": "Diseño arquitectónico de viviendas, edificaciones comerciales e industriales; remodelaciones, modelado 3D, renders y asesoría para trámites municipales."
+    "description": "Diseño arquitectónico de viviendas, edificaciones comerciales e industriales; remodelaciones, modelado 3D, renders y asesoría para trámites municipales.",
+    "path": "servicios/arquitectura/"
+
   },
   {
     "name": "ESTUDIOS DE MECANICA DE SUELOS, GEOTECNIA Y CONCRETO",
-    "description": "Investigaciones, ensayos y cálculos geotécnicos para cimentaciones, estabilidad de taludes, diseño de mezclas y control de calidad de materiales."
+    "description": "Investigaciones, ensayos y cálculos geotécnicos para cimentaciones, estabilidad de taludes, diseño de mezclas y control de calidad de materiales.",
+    "path": "servicios/mecanica-de-suelos/"
   },
   {
     "name": "TOPOGRAFIA PROFESIONAL",
-    "description": "Mediciones topográficas con tecnología avanzada, replanteo y control de obra, elaboración de informes y certificación de puntos georreferenciados."
+    "description": "Mediciones topográficas con tecnología avanzada, replanteo y control de obra, elaboración de informes y certificación de puntos georreferenciados.",
+    "path": "servicios/topografia/"
   },
   {
     "name": "SANEAMIENTO FISICO LEGAL",
-    "description": "Asesoría técnica y legal para regularización y saneamiento de predios urbanos y rurales, incluyendo gestión de licencias y trámites municipales."
+    "description": "Asesoría técnica y legal para regularización y saneamiento de predios urbanos y rurales, incluyendo gestión de licencias y trámites municipales.",
+    "path": "servicios/saneamiento/"
   }
 ];
 const imagesPath = [
@@ -41,7 +47,7 @@ const imagesPath = [
 ---
 
 <Layout title="SH & ML S.R.L. Ingeniería Soluciones" description="Empresa dedicada a ingenieria y topografia en edificaciones, carreteras, canales, puentes, etc." showSidebar={false}>
-    <div class="landing-page">
+    <div class="landing-page grid grid-cols-1 md:grid-cols-2">
       <section class="hero !pb-6">
         <div class="hero-content">
           <Slider images={imagesPath} client:load />
@@ -65,15 +71,15 @@ const imagesPath = [
       </section>
 
   
-      <section class="features" id="features">
+      <section class="features col-span-full" id="features">
         <div class="container">
           <h2 class="section-title">Servicios</h2>
           <div class="features-grid">
             {allServices.map(service => (
-              <div class="feature-card">
+              <a class="feature-card" href={service.path} >
                 <h3 class="feature-title">{service.name}</h3>
                 <p class="feature-description">{service.description}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -308,6 +314,7 @@ const imagesPath = [
   .feature-card:hover {
     transform: translateY(-4px);
     border-color: var(--color-accent);
+    cursor: pointer;
   }
 
   .feature-icon {

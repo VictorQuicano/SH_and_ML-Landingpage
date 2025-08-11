@@ -25,7 +25,7 @@ export const config: SiteConfig = {
     // avatar: "/images/avatar.jpg" // Uncomment and add your avatar image to public/images/
   },
   social: {
-    facebook: "https://twitter.com/yourusername",
+    facebook: "https://www.facebook.com/shymlingenieriasoluciones",
     whatsapp: "https://wa.me/51958225370",
     linkedin:
       "https://www.linkedin.com/in/edwin-ismael-miranda-le%C3%B3n-0969552a1/?originalSubdomain=pe",

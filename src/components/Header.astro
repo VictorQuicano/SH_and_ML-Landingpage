@@ -6,11 +6,11 @@ import ThemeToggle from './ThemeToggle.astro';
 const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: '' };
 const navItems = [
   { name: "Conocenos", path: "" },
-  { name: "Ingenierías", path: "servicios/ingenierias-para-obras" },
-  { name: "Arquitectura", path: "servicios/arquitectura" },
-  { name: "Estudios", path: "servicios/mecanica-de-suelos" },
-  { name: "Topografía", path: "servicios/topografia" },
-  { name: "Saneamiento", path: "servicios/saneamiento" },
+  { name: "Ingenierías", path: "servicios/ingenierias-para-obras/" },
+  { name: "Arquitectura", path: "servicios/arquitectura/" },
+  { name: "Estudios", path: "servicios/mecanica-de-suelos/" },
+  { name: "Topografía", path: "servicios/topografia/" },
+  { name: "Saneamiento", path: "servicios/saneamiento/" },
 ];
 const currentURL = Astro.url;
 ---

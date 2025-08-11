@@ -10,7 +10,7 @@
   --color-black: #000000;
 
   /* Accent Color */
-  --color-accent-red: #ffb300;
+  --color-accent-red: oklch(66.6% 0.179 58.318);
 
   /* Semantic Colors */
   --color-background: var(--color-white);
@@ -160,6 +160,7 @@ a {
   color: var(--color-accent);
   text-decoration: none;
   transition: color 0.2s ease;
+  font-size: 1.01rem;
 }
 
 a:hover,
