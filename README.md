@@ -20,12 +20,11 @@ Para ejecutar este proyecto necesitas tener instalado:
 ## ⚙️ Instalación y ejecución en local
 
 1. **Clonar el repositorio**
+
    ```bash
    git clone https://github.com/VictorQuicano/SH_and_ML-Landingpage.git
    cd SH_and_ML-Landingpage
    ```
-
-````
 
 2. **Instalar dependencias**
 
@@ -102,15 +101,15 @@ Para ejecutar este proyecto necesitas tener instalado:
 El sitio puede ser desplegado en cualquier hosting compatible con sitios estáticos o adaptado para SSR.
 Recomendado:
 
-* [Netlify](https://www.netlify.com/) (Usado actualmente)
-* [Vercel](https://vercel.com/)
-* [GitHub Pages](https://pages.github.com/)
+- [Netlify](https://www.netlify.com/) (Usado actualmente)
+- [Vercel](https://vercel.com/)
+- [GitHub Pages](https://pages.github.com/)
 
 ## 🛠 Mantenimiento y mejoras
 
-* Mantener actualizado Astro y sus dependencias.
-* Optimizar imágenes antes de subir.
-* Revisar el rendimiento y SEO con [Lighthouse](https://developer.chrome.com/docs/lighthouse/).
+- Mantener actualizado Astro y sus dependencias.
+- Optimizar imágenes antes de subir.
+- Revisar el rendimiento y SEO con [Lighthouse](https://developer.chrome.com/docs/lighthouse/).
 
 ## 📄 Licencia
 
@@ -119,7 +118,8 @@ No está permitido su uso o distribución sin autorización.
 
 ---
 
-💡 *Desarrollado con Astro para velocidad, seguridad y escalabilidad.*
+💡 _Desarrollado con Astro para velocidad, seguridad y escalabilidad._
 
 ```
-````
+
+```
