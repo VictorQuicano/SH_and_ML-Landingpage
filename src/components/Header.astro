@@ -10,17 +10,15 @@ const navItems = [
   { name: "Conocenos", path: "" },
   { name: "Ingenierías", path: "servicios/ingenierias-para-obras/" },
   { name: "Arquitectura", path: "servicios/arquitectura/" },
-  { name: "Estudios", path: "servicios/mecanica-de-suelos/" },
+  { name: "Suelos y Concreto", path: "servicios/mecanica-de-suelos/" },
   { name: "Topografía", path: "servicios/topografia/" },
   { name: "Saneamiento", path: "servicios/saneamiento/" },
 ];
 const currentURL = Astro.url;
 ---
 
-<header class="site-header !w-full">
-  <div class="hidden md:flex max-w-page !justify-center !items-center">
-    <InfoSideBar />
-  </div>
+<header class="site-header !w-full !">
+  <InfoSideBar />
   <div class="header-content">
     <!-- Mobile hamburger button - far left on mobile -->
     <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -30,7 +28,6 @@ const currentURL = Astro.url;
         <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
-
     <!--
       <div class="site-title">
         <a href={base}>
@@ -68,7 +65,7 @@ const currentURL = Astro.url;
     <li><a href={base} class="mobile-nav-link">Conocenos</a></li>
     <li><a href={base + "servicios/ingenierias-para-obras"} class="mobile-nav-link">Ingenierías</a></li>
     <li><a href={base + "servicios/arquitectura"} class="mobile-nav-link">Arquitectura</a></li>
-    <li><a href={base + "servicios/mecanica-de-suelos"} class="mobile-nav-link">Estudios</a></li>
+    <li><a href={base + "servicios/mecanica-de-suelos"} class="mobile-nav-link">"Suelos y Concreto</a></li>
     <li><a href={base + "servicios/topografia"} class="mobile-nav-link">Topografía</a></li>
     <li><a href={base + "servicios/saneamiento"} class="mobile-nav-link">Saneamiento</a></li>
   </ul>
@@ -248,7 +245,7 @@ const currentURL = Astro.url;
   .site-header {
     background-color: var(--color-surface);
     border-bottom: 2px solid var(--color-border);
-    padding: calc(var(--grid-unit) * 3) 0;
+    padding: 0 0 calc(var(--grid-unit) * 3) 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -661,7 +658,7 @@ const currentURL = Astro.url;
   .mobile-nav-list {
     list-style: none;
     margin: 0;
-    padding: calc(var(--grid-unit) * 4) 0;
+    padding: calc(var(--grid-unit) * 25) 0 calc(var(--grid-unit) * 4) 0;
   }
 
   .mobile-nav-link {
@@ -685,8 +682,9 @@ const currentURL = Astro.url;
   }
 
   @media (max-width: 768px) {
+    
     .site-header {
-      padding: calc(var(--grid-unit) * 2) 0;
+      padding: 0 0 calc(var(--grid-unit) * 1) 0;
     }
 
     .header-content {
